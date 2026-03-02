@@ -42,7 +42,6 @@ const dashboardHTML = `<!doctype html>
   <p>Read-only network visibility and health view.</p>
   <table>
     <thead>
-      <tr><th>Name</th><th>Address</th><th>Type</th><th>Status</th><th>Latency (ms)</th><th>Packet Loss (%)</th><th>Updated</th></tr>
       <tr><th>Name</th><th>Address</th><th>Status</th><th>Latency (ms)</th><th>Packet Loss (%)</th><th>Updated</th></tr>
     </thead>
     <tbody id="rows"></tbody>
@@ -58,7 +57,6 @@ const dashboardHTML = `<!doctype html>
         tr.innerHTML =
           '<td>' + item.name + '</td>' +
           '<td>' + item.address + '</td>' +
-          '<td>' + (item.type || '') + '</td>' +
           '<td class="' + (item.online ? 'up' : 'down') + '">' + (item.online ? 'UP' : 'DOWN') + '</td>' +
           '<td>' + item.latency_ms.toFixed(2) + '</td>' +
           '<td>' + item.packet_loss_percent.toFixed(1) + '</td>' +
@@ -67,7 +65,7 @@ const dashboardHTML = `<!doctype html>
       });
     }
     refresh();
-    setInterval(refresh, 5000);
+    setInterval(refresh, 7000);
   </script>
 </body>
 </html>`
