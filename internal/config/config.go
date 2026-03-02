@@ -1,0 +1,41 @@
+package config
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
+
+type Device struct {
+	Name    string `json:"name"`
+	Address string `json:"address"`
+}
+
+type Config struct {
+	Devices []Device `json:"devices"`
+}
+
+func Load(path string) (Config, error) {
+	var cfg Config
+	f, err := os.Open(path)
+	if err != nil {
+		return cfg, fmt.Errorf("open config: %w", err)
+	}
+	defer f.Close()
+
+	if err := json.NewDecoder(f).Decode(&cfg); err != nil {
+		return cfg, fmt.Errorf("decode config: %w", err)
+	}
+
+	if len(cfg.Devices) == 0 {
+		return cfg, fmt.Errorf("no devices configured")
+	}
+
+	for i, d := range cfg.Devices {
+		if d.Name == "" || d.Address == "" {
+			return cfg, fmt.Errorf("device %d must include name and address", i)
+		}
+	}
+
+	return cfg, nil
+}
