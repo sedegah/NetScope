@@ -1,0 +1,14 @@
+{
+  "devices": [
+    {
+      "name": "Router1",
+      "address": "192.168.1.1",
+      "type": "router"
+    },
+    {
+      "name": "Switch1",
+      "address": "192.168.1.2",
+      "type": "switch"
+    }
+  ]
+}
