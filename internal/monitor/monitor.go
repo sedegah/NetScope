@@ -50,6 +50,7 @@ func (s *Service) ProbeDevice(ctx context.Context, device config.Device, probes 
 	snapshot := store.Snapshot{
 		Name:       device.Name,
 		Address:    device.Address,
+		Type:       device.Type,
 		Online:     online,
 		LatencyMS:  avgLatency,
 		PacketLoss: loss,
