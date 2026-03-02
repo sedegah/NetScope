@@ -71,6 +71,37 @@ Fields:
 - `address`: IPv4 address
 - `type` (optional): router/switch/pc/nas/etc.
 
+
+## Windows run instructions (PowerShell)
+
+From the project root (`NetScope`):
+
+```powershell
+copy .\devices.example.json .\devices.json
+go run .\cmd\netscope monitor -config devices.json -interval 5s
+```
+
+For web mode:
+
+```powershell
+go run .\cmd\netscope web -config devices.json -listen :8080
+```
+
+### Troubleshooting: `syntax error` in `cmd\netscope\main.go`
+If you see parser errors around specific line numbers:
+
+1. Make sure you are on the latest commit of this branch.
+2. Run a clean build from repo root:
+   ```powershell
+   go clean -cache
+   go build .\cmd\netscope
+   ```
+3. Verify module root is detected correctly:
+   ```powershell
+   go env GOMOD
+   ```
+   It should point to this repo's `go.mod`.
+
 ## Build for Linux and Windows
 
 ### Linux/macOS shell
