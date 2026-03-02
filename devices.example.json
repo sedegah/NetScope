@@ -1,0 +1,6 @@
+{
+  "devices": [
+    {"name": "Gateway", "address": "192.168.1.1"},
+    {"name": "DNS", "address": "8.8.8.8"}
+  ]
+}
