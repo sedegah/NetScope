@@ -9,6 +9,7 @@ import (
 type Device struct {
 	Name    string `json:"name"`
 	Address string `json:"address"`
+	Type    string `json:"type,omitempty"`
 }
 
 type Config struct {
@@ -38,4 +39,19 @@ func Load(path string) (Config, error) {
 	}
 
 	return cfg, nil
+}
+
+func Save(path string, cfg Config) error {
+	f, err := os.Create(path)
+	if err != nil {
+		return fmt.Errorf("create config: %w", err)
+	}
+	defer f.Close()
+
+	enc := json.NewEncoder(f)
+	enc.SetIndent("", "  ")
+	if err := enc.Encode(cfg); err != nil {
+		return fmt.Errorf("encode config: %w", err)
+	}
+	return nil
 }

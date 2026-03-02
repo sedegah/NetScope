@@ -8,6 +8,7 @@ import (
 type Snapshot struct {
 	Name       string    `json:"name"`
 	Address    string    `json:"address"`
+	Type       string    `json:"type,omitempty"`
 	Online     bool      `json:"online"`
 	LatencyMS  float64   `json:"latency_ms"`
 	PacketLoss float64   `json:"packet_loss_percent"`
