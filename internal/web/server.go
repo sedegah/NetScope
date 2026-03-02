@@ -43,6 +43,7 @@ const dashboardHTML = `<!doctype html>
   <table>
     <thead>
       <tr><th>Name</th><th>Address</th><th>Type</th><th>Status</th><th>Latency (ms)</th><th>Packet Loss (%)</th><th>Updated</th></tr>
+      <tr><th>Name</th><th>Address</th><th>Status</th><th>Latency (ms)</th><th>Packet Loss (%)</th><th>Updated</th></tr>
     </thead>
     <tbody id="rows"></tbody>
   </table>
