@@ -1,7 +1,0 @@
-{
-  "devices": [
-    {"name": "Router", "address": "192.168.0.1", "type": "router"},
-    {"name": "Laptop", "address": "192.168.0.10", "type": "pc"},
-    {"name": "NAS", "address": "192.168.0.50", "type": "nas"}
-  ]
-}
