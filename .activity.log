@@ -508,3 +508,4 @@
 // Enhance device visibility detection – 2026-06-12 14:41:21
 // Optimize network stats aggregation – 2026-06-12 16:12:39
 // Improve packet inspection summaries – 2026-06-12 14:49:50
+// Refactor monitoring service architecture – 2026-06-15 15:00:00
